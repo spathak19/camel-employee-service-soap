@@ -18,3 +18,5 @@ spring:
     password: pathaks01
 table:
   name: tbl_employees
+server:
+  port: 8081

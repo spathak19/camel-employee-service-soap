@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+    xmlns:ws="http://ws.pathaks.com/employeeWS/" 
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="employeeWS" targetNamespace="http://ws.pathaks.com/employeeWS/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://ws.pathaks.com/employeeWS/" 
+            xmlns:emp="http://ws.pathaks.com/employeeSchema">
+            <xsd:import schemaLocation="Employee.xsd" namespace="http://ws.pathaks.com/employeeSchema"></xsd:import>
+            <xsd:element name="AddEmployee">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="AddRequest" type="emp:EmployeeType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="AddEmployeeResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="AddEmployeeResponse" type="emp:EmployeeType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DeleteEmployee">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="empID" type="xsd:int"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DeleteEmployeeResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="ResponseMessage" type="xsd:string"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetEmployee">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="empID" type="xsd:int"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetEmployeeResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="GetEmployeeResponse" type="emp:EmployeeType"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetAllEmployees">
+                <xsd:complexType>
+                    <xsd:sequence>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetAllEmployeesResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="GetEmployeesResponse" type="emp:EmployeesType"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UpdateEmployee">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="UpdateEmployeeRequest" type="emp:EmployeeType"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UpdateEmployeeResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="UpdateEmployeeResponse" type="emp:EmployeeType"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="AddEmployeeRequest">
+        <wsdl:part name="parameters" element="ws:AddEmployee" />
+    </wsdl:message>
+    <wsdl:message name="AddEmployeeResponse">
+        <wsdl:part name="parameters" element="ws:AddEmployeeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteEmployeeRequest">
+        <wsdl:part name="parameters" element="ws:DeleteEmployee"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteEmployeeResponse">
+        <wsdl:part name="parameters" element="ws:DeleteEmployeeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetEmployeeRequest">
+        <wsdl:part name="parameters" element="ws:GetEmployee"/>
+    </wsdl:message>
+    <wsdl:message name="GetEmployeeResponse">
+        <wsdl:part name="parameters" element="ws:GetEmployeeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetAllEmployeesRequest">
+        <wsdl:part name="parameters" element="ws:GetAllEmployees"/>
+    </wsdl:message>
+    <wsdl:message name="GetAllEmployeesResponse">
+        <wsdl:part name="parameters" element="ws:GetAllEmployeesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="UpdateEmployeeRequest">
+        <wsdl:part name="parameters" element="ws:UpdateEmployee"/>
+    </wsdl:message>
+    <wsdl:message name="UpdateEmployeeResponse">
+        <wsdl:part name="parameters" element="ws:UpdateEmployeeResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="employeeWS">
+        <wsdl:operation name="AddEmployee">
+            <wsdl:input message="ws:AddEmployeeRequest"/>
+            <wsdl:output message="ws:AddEmployeeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteEmployee">
+            <wsdl:input message="ws:DeleteEmployeeRequest"></wsdl:input>
+            <wsdl:output message="ws:DeleteEmployeeResponse"></wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetEmployee">
+            <wsdl:input message="ws:GetEmployeeRequest"></wsdl:input>
+            <wsdl:output message="ws:GetEmployeeResponse"></wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAllEmployees">
+            <wsdl:input message="ws:GetAllEmployeesRequest"></wsdl:input>
+            <wsdl:output message="ws:GetAllEmployeesResponse"></wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateEmployee">
+            <wsdl:input message="ws:UpdateEmployeeRequest"></wsdl:input>
+            <wsdl:output message="ws:UpdateEmployeeResponse"></wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="employeeWSSOAP" type="ws:employeeWS">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="AddEmployee">
+            <soap:operation soapAction="http://ws.pathaks.com/employeeWS/AddEmployee"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteEmployee">
+            <soap:operation soapAction="http://ws.pathaks.com/employeeWS/DeleteEmployee"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateEmployee">
+            <soap:operation soapAction="http://ws.pathaks.com/employeeWS/UpdateEmployee"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetEmployee">
+            <soap:operation soapAction="http://ws.pathaks.com/employeeWS/GetEmployee"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAllEmployees">
+            <soap:operation soapAction="http://ws.pathaks.com/employeeWS/GetAllEmployees"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="employeeWS">
+        <wsdl:port binding="ws:employeeWSSOAP" name="employeeWSSOAP">
+            <soap:address location="http://localhost:8081/employees/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

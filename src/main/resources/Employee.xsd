@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    targetNamespace="http://ws.pathaks.com/employeeSchema" 
+    xmlns:tns="http://ws.pathaks.com/employeeSchema" elementFormDefault="qualified">
+
+    <xs:element name="Employees" type="tns:EmployeesType"></xs:element>
+
+    <xs:complexType name="EmployeesType">
+        <xs:sequence>
+            <xs:element name="Employee" type="tns:EmployeeType" maxOccurs="unbounded" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="EmployeeType">
+        <xs:sequence>
+            <xs:element name="empID" type="xs:int"></xs:element>
+            <xs:element name="empFirstName" type="xs:string"></xs:element>
+            <xs:element name="empMiddleName" type="xs:string"></xs:element>
+            <xs:element name="empLastName" type="xs:string"></xs:element>
+            <xs:element name="empDepartment" type="xs:string"></xs:element>
+            <xs:element name="empHireDate" type="xs:dateTime"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
