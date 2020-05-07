@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
-    xmlns:ws="http://ws.pathaks.com/employeeWS/" 
+    xmlns:ws="http://employeesoap.pathaks.com/employeeWS/" 
     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="employeeWS" targetNamespace="http://ws.pathaks.com/employeeWS/">
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="employeeWS" targetNamespace="http://employeesoap.pathaks.com/employeeWS/">
     <wsdl:types>
-        <xsd:schema targetNamespace="http://ws.pathaks.com/employeeWS/" 
-            xmlns:emp="http://ws.pathaks.com/employeeSchema">
-            <xsd:import schemaLocation="Employee.xsd" namespace="http://ws.pathaks.com/employeeSchema"></xsd:import>
+        <xsd:schema targetNamespace="http://employeesoap.pathaks.com/employeeWS/" 
+            xmlns:emp="http://employeesoap.pathaks.com/employeeSchema">
+            <xsd:import schemaLocation="Employee.xsd" namespace="http://employeesoap.pathaks.com/employeeSchema"></xsd:import>
             <xsd:element name="AddEmployee">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="AddRequest" type="emp:EmployeeType"/>
+                        <xsd:element name="AddRequest" type="emp:Employee"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
             <xsd:element name="AddEmployeeResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="AddEmployeeResponse" type="emp:EmployeeType"/>
+                        <xsd:element name="AddEmployeeResponse" type="emp:Employee"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
@@ -45,7 +45,7 @@
             <xsd:element name="GetEmployeeResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="GetEmployeeResponse" type="emp:EmployeeType"></xsd:element>
+                        <xsd:element name="GetEmployeeResponse" type="emp:Employee"></xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
@@ -58,21 +58,21 @@
             <xsd:element name="GetAllEmployeesResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="GetEmployeesResponse" type="emp:EmployeesType"></xsd:element>
+                        <xsd:element name="GetEmployeesResponse" type="emp:Employees"></xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
             <xsd:element name="UpdateEmployee">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="UpdateEmployeeRequest" type="emp:EmployeeType"></xsd:element>
+                        <xsd:element name="UpdateEmployeeRequest" type="emp:Employee"></xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
             <xsd:element name="UpdateEmployeeResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="UpdateEmployeeResponse" type="emp:EmployeeType"></xsd:element>
+                        <xsd:element name="UpdateEmployeeResponse" type="emp:Employee"></xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
@@ -133,7 +133,7 @@
     <wsdl:binding name="employeeWSSOAP" type="ws:employeeWS">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="AddEmployee">
-            <soap:operation soapAction="http://ws.pathaks.com/employeeWS/AddEmployee"/>
+            <soap:operation soapAction="http://employeesoap.pathaks.com/employeeWS/AddEmployee"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -142,7 +142,7 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="DeleteEmployee">
-            <soap:operation soapAction="http://ws.pathaks.com/employeeWS/DeleteEmployee"/>
+            <soap:operation soapAction="http://employeesoap.pathaks.com/employeeWS/DeleteEmployee"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -151,7 +151,7 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="UpdateEmployee">
-            <soap:operation soapAction="http://ws.pathaks.com/employeeWS/UpdateEmployee"/>
+            <soap:operation soapAction="http://employeesoap.pathaks.com/employeeWS/UpdateEmployee"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -160,7 +160,7 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="GetEmployee">
-            <soap:operation soapAction="http://ws.pathaks.com/employeeWS/GetEmployee"/>
+            <soap:operation soapAction="http://employeesoap.pathaks.com/employeeWS/GetEmployee"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -169,7 +169,7 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="GetAllEmployees">
-            <soap:operation soapAction="http://ws.pathaks.com/employeeWS/GetAllEmployees"/>
+            <soap:operation soapAction="http://employeesoap.pathaks.com/employeeWS/GetAllEmployees"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

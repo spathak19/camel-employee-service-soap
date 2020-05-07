@@ -19,4 +19,6 @@ spring:
 table:
   name: tbl_employees
 server:
+  port: 8080
+management:
   port: 8081

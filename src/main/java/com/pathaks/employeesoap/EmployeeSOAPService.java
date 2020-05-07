@@ -9,5 +9,4 @@ public class EmployeeSOAPService {
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeeSOAPService.class, args);
 	}
-
 }
