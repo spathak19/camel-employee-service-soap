@@ -2,7 +2,6 @@
 package com.pathaks.employeesoap.employeeschema;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.time.ZonedDateTime;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -23,13 +22,13 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="empID" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="empID" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/&gt;
  *         &lt;element name="empFirstName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="empMiddleName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="empLastName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="empDepartment" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="empSalary" type="{http://www.w3.org/2001/XMLSchema}decimal"/&gt;
- *         &lt;element name="empHireDate" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
+ *         &lt;element name="empHireDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -50,7 +49,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 })
 public class Employee {
 
-    protected int empID;
+    @XmlElement(required = false)
+    protected Integer empID;
     @XmlElement(required = true)
     protected String empFirstName;
     @XmlElement(required = true)
@@ -61,23 +61,31 @@ public class Employee {
     protected String empDepartment;
     @XmlElement(required = true)
     protected BigDecimal empSalary;
-    @XmlElement(required = true)
     @XmlSchemaType(name = "dateTime")
+    @XmlElement(required = false)
     protected ZonedDateTime empHireDate;
 
     /**
      * Gets the value of the empID property.
      * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
      */
-    public int getEmpID() {
+    public Integer getEmpID() {
         return empID;
     }
 
     /**
      * Sets the value of the empID property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
      */
-    public void setEmpID(int value) {
+    public void setEmpID(Integer value) {
         this.empID = value;
     }
 

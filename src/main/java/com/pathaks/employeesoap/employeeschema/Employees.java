@@ -37,6 +37,11 @@ public class Employees {
     @XmlElement(name = "Employee")
     protected List<Employee> employee;
 
+
+    public void setEmployee(List<Employee> employee) {
+        this.employee = employee;
+    }
+
     /**
      * Gets the value of the employee property.
      * 

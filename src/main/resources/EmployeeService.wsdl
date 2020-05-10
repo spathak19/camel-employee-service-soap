@@ -10,42 +10,42 @@
             <xsd:element name="AddEmployee">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="AddRequest" type="emp:Employee"/>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="AddRequest" type="emp:Employee"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
             <xsd:element name="AddEmployeeResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="AddEmployeeResponse" type="emp:Employee"/>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="AddEmployeeResponse" type="emp:Employee"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
             <xsd:element name="DeleteEmployee">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="empID" type="xsd:int"></xsd:element>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="empID" type="xsd:int"></xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
             <xsd:element name="DeleteEmployeeResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="ResponseMessage" type="xsd:string"></xsd:element>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="ResponseMessage" type="xsd:string"></xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
             <xsd:element name="GetEmployee">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="empID" type="xsd:int"></xsd:element>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="empID" type="xsd:int"></xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
             <xsd:element name="GetEmployeeResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="GetEmployeeResponse" type="emp:Employee"></xsd:element>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="GetEmployeeResponse" type="emp:Employee"></xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
@@ -58,7 +58,7 @@
             <xsd:element name="GetAllEmployeesResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="GetEmployeesResponse" type="emp:Employees"></xsd:element>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="GetEmployeesResponse" type="emp:Employees"></xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
